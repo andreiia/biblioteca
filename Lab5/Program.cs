@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +10,13 @@ namespace proiect
     {
         static void Main(string[] args)
         {
-            Carte[] carti=new  Carte[10];
-            Carte c1= new Carte("Mandrie si Prejudecata", "Jane Austin", "Corint", 2014, 3,3);
+            Carte[] carti = new Carte[10];
+            Carte c1 = new Carte("Mandrie si Prejudecata", "Jane Austin", "Corint", 2014, 3, 3);
             string s1 = c1.Info();
             carti[0] = c1;
             //Console.WriteLine(s1);
 
-            Carte c2= new Carte("Marele Gatsby,F. Scott Fitzgerald,HUMANITAS,2018,2,5");
+            Carte c2 = new Carte("Marele Gatsby,F. Scott Fitzgerald,HUMANITAS,2018,2,5");
             string s2 = c2.Info();
             carti[1] = c2;
 
@@ -32,20 +32,20 @@ namespace proiect
 
             //Console.WriteLine(s2);
 
-            Persoana p1 = new Persoana("Hreceniuc", "Andreia", 20, 0, "0744", "andreiahreceniuc@");
+            Persoana p1 = new Persoana("Hreceniuc", "Andreia", 20, 0, "0744", "andreiahreceniuc@", 2);
             string s3 = p1.InfoPersoana();
             //Console.WriteLine(s3);
 
-            Persoana p2 = new Persoana("Hreceniuc, Andreia, 20, 4, 09384,andreiahreceniuc@");
+            Persoana p2 = new Persoana("Hreceniuc, Andreia, 20, 4, 09384,andreiahreceniuc@,2");
             string s4 = p2.InfoPersoana();
             //Console.WriteLine(s4);
             //Compara cine a imprumutat mai multe carti dintre 2 persoane
-            string s5=p1.compara(p2);
+            string s5 = p1.compara(p2);
             //Console.WriteLine(s5);
 
             //Compara 2 carti -> va afisa cartea care are mai multe exemplare
             string s6 = c1.ComparaCarte(c2);
-           // Console.WriteLine(s6);
+            // Console.WriteLine(s6);
 
             //Alegerea genului de carte dorit:
             Console.WriteLine("Alegeti ce gen de carte doriti: ");
@@ -58,7 +58,7 @@ namespace proiect
             while (opt < 1 && opt > 5)
             { opt = Convert.ToInt32(Console.ReadLine()); }
             bool ok = false;
-            for (int i=0;i<4;i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (carti[i].CautareGenCarte(opt) == true)
                 {
@@ -66,7 +66,7 @@ namespace proiect
                     ok = true;
                 }
             }
-            if (ok==false)
+            if (ok == false)
                 Console.WriteLine("Nu avem nicio carte in acest gen");
 
 
@@ -74,7 +74,7 @@ namespace proiect
             Console.WriteLine("Dati numele cartii pe care doriti sa o cautati: ");
             string _nume = Console.ReadLine();
             ok = false;
-            for (int i=0;i<4;i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (carti[i].CautareNume(_nume) == true)
                 {
@@ -91,7 +91,7 @@ namespace proiect
 
 
             Console.ReadKey();
-            
+
 
         }
 
@@ -110,19 +110,21 @@ namespace proiect
             string NrTelefon = Console.ReadLine();
             Console.WriteLine("Adresa de mail: ");
             string AdresaMail = Console.ReadLine();
-            Persoana p = new Persoana(nume, prenume, varsta, NrCartiImprumutate, NrTelefon, AdresaMail);
+            Console.WriteLine("Statutul persoanei: ");
+            int st = Convert.ToInt32(Console.ReadLine());
+            Persoana p = new Persoana(nume, prenume, varsta, NrCartiImprumutate, NrTelefon, AdresaMail, st);
             return p;
         }
 
         public static Carte CitireCarteTastatura()
         {
-            Console.WriteLine("Numele cărții: ");
+            Console.WriteLine("Numele car?ii: ");
             string nume = Console.ReadLine();
             Console.WriteLine("Numele autorului: ");
             string autor = Console.ReadLine();
             Console.WriteLine("Numele editurii: ");
             string editura = Console.ReadLine();
-            Console.WriteLine("An apariție: ");
+            Console.WriteLine("An apari?ie: ");
             int AnAparitie = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Numar exemplare: ");
             int NrExemplare = Convert.ToInt32(Console.ReadLine());
