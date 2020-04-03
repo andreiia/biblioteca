@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +8,9 @@ namespace proiect
 {
     class Carte
     {
-        private
-        string nume;
-        string autor;
-        string editura;
+        public string Nume { get; set; }
+        public string Autor { get; set; }
+        public string Editura { get; set; }
         GENCARTE GenCarte;
         int AnAparitie;
         public int NrExemplare { get; set; }
@@ -20,21 +19,21 @@ namespace proiect
         //Constructor fara parametrii
         public Carte()
         {
-            nume = string.Empty;
-            autor = string.Empty;
-            editura= string.Empty;
+            Nume = string.Empty;
+            Autor = string.Empty;
+            Editura = string.Empty;
             GenCarte = GENCARTE.Copii;
             AnAparitie = 0;
             NrExemplare = 0;
             IDcarte = ID;
-            ID=ID+1;
+            ID = ID + 1;
         }
         //Constructor cu parametrii
-        public Carte(string _nume,string _autor, string _editura, int _AnAparitie, int _NrExemplare,int n)
+        public Carte(string _nume, string _autor, string _editura, int _AnAparitie, int _NrExemplare, int n)
         {
-            nume = _nume;
-            autor = _autor;
-            editura = _editura;
+            Nume = _nume;
+            Autor = _autor;
+            Editura = _editura;
             AnAparitie = _AnAparitie;
             NrExemplare = _NrExemplare;
             IDcarte = ID;
@@ -44,10 +43,10 @@ namespace proiect
         //Constructor care primeste un sir
         public Carte(string sirr)
         {
-            string[] buff= sirr.Split(',');
-            nume = buff[0];
-            autor = buff[1];
-            editura = buff[2];
+            string[] buff = sirr.Split(',');
+            Nume = buff[0];
+            Autor = buff[1];
+            Editura = buff[2];
             AnAparitie = Convert.ToInt32(buff[3]);
             NrExemplare = Convert.ToInt32(buff[4]);
             IDcarte = ID;
@@ -59,13 +58,13 @@ namespace proiect
         public string ComparaCarte(Carte c2)
         {
             if (this.NrExemplare > c2.NrExemplare)
-                return string.Format("Cartea cu numele {0} si ID-ul {1} este in mai multe exemplare ({2})", this.nume, this.IDcarte, this.NrExemplare);
+                return string.Format("Cartea cu numele {0} si ID-ul {1} este in mai multe exemplare ({2})", this.Nume, this.IDcarte, this.NrExemplare);
             else
             {
                 if (this.NrExemplare == c2.NrExemplare)
                 { return string.Format("Cele 2 carti sunt in acelasi numar de exemplare ({0})", this.NrExemplare); }
                 else
-                { return string.Format("Cartea cu numele {0} si ID-ul {1} este in mai multe exemplare ({2})", c2.nume, c2.IDcarte, c2.NrExemplare); }
+                { return string.Format("Cartea cu numele {0} si ID-ul {1} este in mai multe exemplare ({2})", c2.Nume, c2.IDcarte, c2.NrExemplare); }
             }
         }
 
@@ -76,19 +75,19 @@ namespace proiect
                 return true;
             }
             else
-                return false ;
+                return false;
         }
 
         public bool CautareNume(string _nume)
         {
-            if (this.nume == _nume)
+            if (this.Nume == _nume)
                 return true;
             return false;
         }
 
         public string Info()
         {
-            return string.Format("Cartea cu numele {0}, scrisa de {1}, publicata la editura {2}, a aparut in anul {3} si o avem disponibila in {4} exemplare ( are ID-ul : {5}).", nume, autor, editura, AnAparitie, NrExemplare,IDcarte);
+            return string.Format("Cartea cu numele {0}, scrisa de {1}, publicata la editura {2}, a aparut in anul {3} si o avem disponibila in {4} exemplare ( are ID-ul : {5}).", Nume, Autor, Editura, AnAparitie, NrExemplare, IDcarte);
         }
     }
 }
