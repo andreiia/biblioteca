@@ -88,7 +88,7 @@ namespace proiect
             }
             if (ok == false)
                 Console.WriteLine("Nu avem cartea pe care ati cautat-o");
-
+            adminCarti.UpdateCarte(carti, 4);
 
             Console.ReadKey();
 
